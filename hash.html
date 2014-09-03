@@ -11,77 +11,78 @@
 		<meta name="description" content="" />
 		<meta name="author" content="jinguangguo" />
 
-		<script src="../js/jquery-1.11.1.js"></script>
-		<script src="jquery.hash.js"></script>
-		<script src="hash.js"></script>
+		<script src="js/jquery-1.11.1.js"></script>
+		<script src="js/jquery.hash.js"></script>
+		<script src="js/hash.js"></script>
 	</head>
 
 	<body>
-<script>
-	// 测试jquery.hash原有组件
-	(function($) {
-		// 添加hash
-		$.hash('name', 'king');
+		<div>test hash, please open the console to debug ...</div>
+		<script>
+			// 测试jquery.hash原有组件
+			(function($) {
+				// 添加hash
+				$.hash('name', 'king');
 
-		// 获取hash
-		console.log($.hash('name'));
+				// 获取hash
+				console.log($.hash('name'));
 
-		// 删除hash
-		$.hash('name', null);
-	})(jQuery);
+				// 删除hash
+				$.hash('name', null);
+			})(jQuery);
 
-	// ------------------ 测试封装的小组件hash.js -----------------
-	// 添加hash
-	(function($) {
-		// 暂时将hash组件放入window下
-		var hash = window.hash;
+			// ------------------ 测试封装的小组件hash.js -----------------
+			// 添加hash
+			(function($) {
+				// 暂时将hash组件放入window下
+				var hash = window.hash;
 
-		hash.set('name', 'king');	// #name=king
+				hash.set('name', 'king');	// #name=king
 
-		hash.set('dir', 'xxx');		// #dir=xxx&name=king
-	})(jQuery);
+				hash.set('dir', 'xxx');		// #dir=xxx&name=king
+			})(jQuery);
 
 
-	// 获取hash
-	(function($) {
-		var hash = window.hash;
+			// 获取hash
+			(function($) {
+				var hash = window.hash;
 
-		console.log(hash.get('name'));	// king
-	})(jQuery);
+				console.log(hash.get('name'));	// king
+			})(jQuery);
 
-	// 删除hash
-	(function($) {
-		var hash = window.hash;
+			// 删除hash
+			(function($) {
+				var hash = window.hash;
 
-		hash.del('name');	// king
-	})(jQuery);
+				hash.del('name');	// king
+			})(jQuery);
 
-	// 添加hash监听
-	(function($) {
-		// 暂时将hash放入window下
-		var hash = window.hash;
+			// 添加hash监听
+			(function($) {
+				// 暂时将hash放入window下
+				var hash = window.hash;
 
-		// 同一个key添加多个监听
-		hash.listen('name', function(value) {
-			console.log('my first listen of name: ' + value);
-		});
+				// 同一个key添加多个监听
+				hash.listen('name', function(value) {
+					console.log('my first listen of name: ' + value);
+				});
 
-		// 同一个key添加多个监听
-		hash.listen('name', function(value) {
-			console.log('my second listen of name: ' + value);
-		});
-	})(jQuery);
+				// 同一个key添加多个监听
+				hash.listen('name', function(value) {
+					console.log('my second listen of name: ' + value);
+				});
+			})(jQuery);
 
-	// 添加hash全局监听
-	// 只要hash发生改变，都会触发该方法
-	(function($) {
-		// 暂时将hash放入window下
-		var hash = window.hash;
-		// 同一个key添加多个监听
-		hash.listen(function() {
-			console.log('hash change ...');
-		});
-	})(jQuery);
-</script>
+			// 添加hash全局监听
+			// 只要hash发生改变，都会触发该方法
+			(function($) {
+				// 暂时将hash放入window下
+				var hash = window.hash;
+				// 同一个key添加多个监听
+				hash.listen(function() {
+					console.log('hash change ...');
+				});
+			})(jQuery);
+		</script>
 	</body>
 </html>
