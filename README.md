@@ -44,3 +44,5 @@ hash.listen(function() {
 	console.log('hash change ...');
 });
 ```
+
+The End.
